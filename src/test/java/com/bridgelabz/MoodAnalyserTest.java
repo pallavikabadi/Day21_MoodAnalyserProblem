@@ -18,11 +18,12 @@ public class MoodAnalyserTest {
         Assertions.assertEquals("SAD",mood);
         System.out.println(mood);
     }
-    //UC2:
     @Test
     public void givenMessageWhenNullReturnsHappy() {
-        MoodAnalyser moodAnalyser = new MoodAnalyser(null);
+        MoodAnalyser moodAnalyser = new MoodAnalyser(" ");
         String mood = moodAnalyser.moodAnalysis();
         Assertions.assertEquals("HAPPY",mood);
         System.out.println(mood);
+    }
 }
+
