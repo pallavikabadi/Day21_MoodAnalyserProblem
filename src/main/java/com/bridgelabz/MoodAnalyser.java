@@ -4,22 +4,21 @@ public class MoodAnalyser {
     private String message;
 
     public MoodAnalyser(String message) {
-
         this.message = message;
-
     }
-    public String moodAnalysis(){
+    public String moodAnalysis()throws MoodAnalysisException{
 
         try {
+            if (message.length() == 0)
+                throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.Empty, "Invalid Message");
 
-            if (message.contains("I am in sad mood"))
+            else if (message.contains("I am in sad mood"))
                 return "SAD";
-            else if (message.contains("I am in happy mood"))
-                return "SAD";
+            else
+                return "HAPPY";
 
         } catch (NullPointerException e) {
-            return "HAPPY";
+            throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.NULL, "Invalid Message");
         }
-        return null;
     }
 }
